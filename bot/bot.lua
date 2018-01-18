@@ -78,21 +78,9 @@ local sudouser = io.read()
   -- A simple config with basic plugins and ourselves as privileged user 
 config = { 
 enabled_plugins = { 
-"plog",
-"addreply",
-"msg-checks",
-"sudo",
-"addgruop",
-"kickdel",
-"lockselph",
-"siteengbot",
-"info",
-"tools",
-"id",
-"groupmanager",
-"mee",
-"banhammer",
-"help"
+    "msg-checks",
+    "id",
+    "banhammer"
 }, 
 sudo_users = {sudo_id, botid}, 
 SUDO = sudo_id,
