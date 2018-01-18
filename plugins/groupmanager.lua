@@ -4868,7 +4868,7 @@ data[tostring(msg.to.id)]["settings"]["markdown"] = "بالكتم"
     else 
     return " \n📮 | • تم قفل الماركداون" 
    end 
-elseif (matches[2] == "الماركدون" and not Clang) or (matches[2] == "الماركدون" and Clang) then 
+elseif (matches[2] == "المتركداون" and not Clang) or (matches[2] == "الماركدون" and Clang) then 
   if markdown == "مفتوحه" then 
    if not lang then 
     return "📮 | • تم فتـح `🔓`    الماركداون\n\n\n📮 | • خاصيـة • الارسال" 
