@@ -3148,7 +3148,7 @@ return unlock_tgservice(msg ,data, target)
 end 
 end 
    --------------------------------------------قفل الروابط------------------ 
-if (matches[1] == "قفل" and not Clang) or (matches[1] == "الروابط" and Clang) and is_mod(msg) then 
+if matches[1] == "قفل" and is_mod(msg) then 
 local link = data[tostring(msg.to.id)]["settings"]["link"] 
 if (matches[2] == "الروابط بالتحذير" and not Clang) or (matches[2] == "بالتحذير" and Clang) then 
 data[tostring(msg.to.id)]["settings"]["link"] = "بالتحذير" 
@@ -3203,7 +3203,7 @@ data[tostring(msg.to.id)]["settings"]["link"] = "مفتوحه"
 end 
 
 ---------------------قفل المعرفات------------------ 
-if (matches[1] == "قفل" and not Clang) or (matches[1] == "المعرفات" and Clang) and is_mod(msg) then 
+if matches[1] == "قفل" and is_mod(msg) then 
 local tags = data[tostring(msg.to.id)]["settings"]["tag"] 
 if (matches[2] == "المعرفات بالتحذير" and not Clang) or (matches[2] == "بالتحذير" and Clang) then 
 data[tostring(msg.to.id)]["settings"]["tag"] = "بالتحذير" 
@@ -3221,7 +3221,7 @@ data[tostring(msg.to.id)]["settings"]["tag"] = "بالحذف"
     else 
     return "📮 | • تم قفل `🔐`  المعرفات ❮ ☑️ ❯ \n\n\n📮 | • خاصيـة • الحـذف 🗑" 
    end 
-elseif (matches[2] == "المعرفات بالطرد" and not Clang) or (matches[2] == "بالطرد" and Clang) then 
+elseif matches[2] == "المعرفات بالطرد" and is_mod(msg) then 
 data[tostring(msg.to.id)]["settings"]["tag"] = "بالطرد" 
  save_data(_config.moderation.data, data) 
    if not lang then 
@@ -3229,7 +3229,7 @@ data[tostring(msg.to.id)]["settings"]["tag"] = "بالطرد"
     else 
     return "📮 | • تم قفل `🔐`  المعرفات ❮ ☑️ ❯ \n\n\n📮 | • خاصيـة • الطـرد 🚯" 
    end 
-elseif (matches[2] == "المعرفات بالكتم" and not Clang) or (matches[2] == "بالكتم" and Clang) then 
+elseif matches[2] == "المعرفات بالكتم" and is_mod(msg) then 
 data[tostring(msg.to.id)]["settings"]["tag"] = "بالكتم" 
  save_data(_config.moderation.data, data) 
    if not lang then 
@@ -3258,7 +3258,7 @@ data[tostring(msg.to.id)]["settings"]["tag"] = "مفتوحه"
 end 
 
 ---------------------قفل الدردشه------------------ 
-if (matches[1] == "قفل" and not Clang) or (matches[1] == "الدردشه" and Clang) and is_mod(msg) then 
+if matches[1] == "قفل" and is_mod(msg) then 
 local text = data[tostring(msg.to.id)]["settings"]["text"] 
 if (matches[2] == "الدردشه بالتحذير" and not Clang) or (matches[2] == "بالتحذير" and Clang) then 
 data[tostring(msg.to.id)]["settings"]["text"] = "بالتحذير" 
@@ -3313,7 +3313,7 @@ data[tostring(msg.to.id)]["settings"]["text"] = "مفتوحه"
 end 
 
 ---------------------قفل الكل------------------ 
-if (matches[1] == "قفل" and not Clang) or (matches[1] == "الكل" and Clang) and is_mod(msg) then 
+if matches[1] == "قفل" and is_mod(msg) then 
 local chats = data[tostring(msg.to.id)]["settings"]["chat"] 
 if (matches[2] == "الكل بالتحذير" and not Clang) or (matches[2] == "بالتحذير" and Clang) then 
 data[tostring(msg.to.id)]["settings"]["chat"] = "بالتحذير" 
@@ -3368,7 +3368,7 @@ data[tostring(msg.to.id)]["settings"]["chat"] = "مفتوحه"
 end 
 
 ---------------------قفل العربيه------------------ 
-if (matches[1] == "قفل" and not Clang) or (matches[1] == "العربيه" and Clang) and is_mod(msg) then 
+if matches[1] == "قفل" and is_mod(msg) then 
 local arabic = data[tostring(msg.to.id)]["settings"]["arabic"] 
 if (matches[2] == "العربيه بالتحذير" and not Clang) or (matches[2] == "بالتحذير" and Clang) then 
 data[tostring(msg.to.id)]["settings"]["arabic"] = "بالتحذير" 
@@ -3423,7 +3423,7 @@ data[tostring(msg.to.id)]["settings"]["arabic"] = "مفتوحه"
 end 
 
 ---------------------قفل التعديل------------------ 
-if (matches[1] == "قفل" and not Clang) or (matches[1] == "التعديل" and Clang) and is_mod(msg) then 
+if matches[1] == "قفل" and is_mod(msg) then 
 local edit = data[tostring(msg.to.id)]["settings"]["edit"] 
 if (matches[2] == "التعديل بالتحذير" and not Clang) or (matches[2] == "بالتحذير" and Clang) then 
 data[tostring(msg.to.id)]["settings"]["edit"] = "بالتحذير" 
@@ -3478,7 +3478,7 @@ data[tostring(msg.to.id)]["settings"]["edit"] = "مفتوحه"
 end 
 
 ---------------------قفل الماركداون------------------ 
-if (matches[1] == "قفل" and not Clang) or (matches[1] == "الماركداون" and Clang) and is_mod(msg) then 
+if matches[1] == "قفل" and is_mod(msg) then 
 local markdown = data[tostring(msg.to.id)]["settings"]["markdown"] 
 if (matches[2] == "الماركداون بالتحذير" and not Clang) or (matches[2] == "بالتحذير" and Clang) then 
 data[tostring(msg.to.id)]["settings"]["markdown"] = "بالتحذير" 
@@ -3533,7 +3533,7 @@ data[tostring(msg.to.id)]["settings"]["markdown"] = "مفتوحه"
 end 
 
 ---------------------قفل المنشن------------------ 
-if (matches[1] == "قفل" and not Clang) or (matches[1] == "المنشن" and Clang) and is_mod(msg) then 
+if matches[1] == "قفل" and is_mod(msg) then 
 local mention = data[tostring(msg.to.id)]["settings"]["mention"] 
 if (matches[2] == "المنشن بالتحذير" and not Clang) or (matches[2] == "بالتحذير" and Clang) then 
 data[tostring(msg.to.id)]["settings"]["mention"] = "بالتحذير" 
@@ -3588,7 +3588,7 @@ data[tostring(msg.to.id)]["settings"]["mention"] = "مفتوحه"
 end 
 
 ---------------------قفل التكرار------------------ 
-if (matches[1] == "قفل" and not Clang) or (matches[1] == "التكرار" and Clang) and is_mod(msg) then 
+if matches[1] == "قفل" and is_mod(msg) then 
 local flood = data[tostring(msg.to.id)]["settings"]["flood"] 
 if (matches[2] == "التكرار بالطرد" and not Clang) or (matches[2] == "بالطرد" and Clang) then 
 data[tostring(msg.to.id)]["settings"]["flood"] = "بالطرد" 
@@ -3625,7 +3625,7 @@ data[tostring(msg.to.id)]["settings"]["flood"] = "disable"
 end 
 
 ---------------------قفل الكلايش------------------ 
-if (matches[1] == "قفل" and not Clang) or (matches[1] == "الكلايش" and Clang) and is_mod(msg) then 
+if matches[1] == "قفل" and is_mod(msg) then 
 local spam = data[tostring(msg.to.id)]["settings"]["spam"] 
 if (matches[2] == "الكلايش بالتحذير" and not Clang) or (matches[2] == "بالتحذير" and Clang) then 
 data[tostring(msg.to.id)]["settings"]["spam"] = "بالتحذير" 
@@ -3680,7 +3680,7 @@ data[tostring(msg.to.id)]["settings"]["spam"] = "disable"
 end 
 
 ---------------------قفل الصفحات------------------ 
-if (matches[1] == "قفل" and not Clang) or (matches[1] == "الصفحات" and Clang) and is_mod(msg) then 
+if matches[1] == "قفل" and is_mod(msg) then 
 local webpage = data[tostring(msg.to.id)]["settings"]["webpage"] 
 if (matches[2] == "الصفحات بالتحذير" and not Clang) or (matches[2] == "بالتحذير" and Clang) then 
 data[tostring(msg.to.id)]["settings"]["webpage"] = "بالتحذير" 
@@ -3735,7 +3735,7 @@ data[tostring(msg.to.id)]["settings"]["webpage"] = "مفتوحه"
 end 
 
 ---------------------قفل التوجيه------------------ 
-if (matches[1] == "قفل" and not Clang) or (matches[1] == "التوجيه" and Clang) and is_mod(msg) then 
+if matches[1] == "قفل" and is_mod(msg) then 
 local forward = data[tostring(msg.to.id)]["settings"]["forward"] 
 if (matches[2] == "التوجيه بالتحذير" and not Clang) or (matches[2] == "بالتحذير" and Clang) then 
 data[tostring(msg.to.id)]["settings"]["forward"] = "بالتحذير" 
@@ -3790,7 +3790,7 @@ data[tostring(msg.to.id)]["settings"]["forward"] = "مفتوحه"
 end 
 
 --------------------قفل توجيه القنواة------------------ 
-if (matches[1] == "قفل" and not Clang) or (matches[1] == "توجيه القنواة" and Clang) and is_mod(msg) then 
+if matches[1] == "قفل" and is_mod(msg) then 
 local view = data[tostring(msg.to.id)]["settings"]["view"] 
 if (matches[2] == "توجيه القنواة بالتحذير" and not Clang) or (matches[2] == "بالتحذير" and Clang) then 
 data[tostring(msg.to.id)]["settings"]["view"] = "بالتحذير" 
@@ -3845,7 +3845,7 @@ data[tostring(msg.to.id)]["settings"]["view"] = "مفتوحه"
 end 
 
 ---------------------قفل الصفحات------------------ 
-if (matches[1] == "قفل" and not Clang) or (matches[1] == "الملصقات" and Clang) and is_mod(msg) then 
+if matches[1] == "قفل" and is_mod(msg) then 
 local sticker = data[tostring(msg.to.id)]["settings"]["sticker"] 
 if (matches[2] == "الملصقات بالتحذير" and not Clang) or (matches[2] == "بالتحذير" and Clang) then 
 data[tostring(msg.to.id)]["settings"]["sticker"] = "بالتحذير" 
@@ -3900,7 +3900,7 @@ data[tostring(msg.to.id)]["settings"]["sticker"] = "مفتوحه"
 end 
 
 ---------------------قفل الصور------------------ 
-if (matches[1] == "قفل" and not Clang) or (matches[1] == "الصور" and Clang) and is_mod(msg) then 
+if matches[1] == "قفل" and is_mod(msg) then 
 local photo = data[tostring(msg.to.id)]["settings"]["photo"] 
 if (matches[2] == "الصور بالتحذير" and not Clang) or (matches[2] == "بالتحذير" and Clang) then 
 data[tostring(msg.to.id)]["settings"]["photo"] = "بالتحذير" 
@@ -3955,7 +3955,7 @@ data[tostring(msg.to.id)]["settings"]["photo"] = "مفتوحه"
 end 
 
 ---------------------قفل الفيديو------------------ 
-if (matches[1] == "قفل" and not Clang) or (matches[1] == "الفيديو" and Clang) and is_mod(msg) then 
+if matches[1] == "قفل" and is_mod(msg) then 
 local video = data[tostring(msg.to.id)]["settings"]["video"] 
 if (matches[2] == "الفيديو بالتحذير" and not Clang) or (matches[2] == "بالتحذير" and Clang) then 
 data[tostring(msg.to.id)]["settings"]["video"] = "بالتحذير" 
@@ -4010,7 +4010,7 @@ data[tostring(msg.to.id)]["settings"]["video"] = "مفتوحه"
 end 
 
 ---------------------قفل المتحركه------------------ 
-if (matches[1] == "قفل" and not Clang) or (matches[1] == "المتحركه" and Clang) and is_mod(msg) then 
+if matches[1] == "قفل" and is_mod(msg) then 
 local gif = data[tostring(msg.to.id)]["settings"]["gif"] 
 if (matches[2] == "المتحركه بالتحذير" and not Clang) or (matches[2] == "بالتحذير" and Clang) then 
 data[tostring(msg.to.id)]["settings"]["gif"] = "بالتحذير" 
@@ -4065,7 +4065,7 @@ data[tostring(msg.to.id)]["settings"]["gif"] = "مفتوحه"
 end 
 
 ---------------------قفل الكيبورد------------------ 
-if (matches[1] == "قفل" and not Clang) or (matches[1] == "الكيبورد" and Clang) and is_mod(msg) then 
+if matches[1] == "قفل" and is_mod(msg) then 
 local keyboard = data[tostring(msg.to.id)]["settings"]["keyboard"] 
 if (matches[2] == "الكيبورد بالتحذير" and not Clang) or (matches[2] == "بالتحذير" and Clang) then 
 data[tostring(msg.to.id)]["settings"]["keyboard"] = "بالتحذير" 
@@ -4120,7 +4120,7 @@ data[tostring(msg.to.id)]["settings"]["keyboard"] = "مفتوحه"
 end 
 
 ---------------------قفل الملفات------------------ 
-if (matches[1] == "قفل" and not Clang) or (matches[1] == "الملفات" and Clang) and is_mod(msg) then 
+if matches[1] == "قفل" and is_mod(msg) then 
 local document = data[tostring(msg.to.id)]["settings"]["document"] 
 if (matches[2] == "الملفات بالتحذير" and not Clang) or (matches[2] == "بالتحذير" and Clang) then 
 data[tostring(msg.to.id)]["settings"]["document"] = "بالتحذير" 
@@ -4175,7 +4175,7 @@ data[tostring(msg.to.id)]["settings"]["document"] = "مفتوحه"
 end 
 
 ---------------------قفل المواقع------------------ 
-if (matches[1] == "قفل" and not Clang) or (matches[1] == "المواقع" and Clang) and is_mod(msg) then 
+if matches[1] == "قفل" and is_mod(msg) then 
 local location = data[tostring(msg.to.id)]["settings"]["location"] 
 if (matches[2] == "المواقع بالتحذير" and not Clang) or (matches[2] == "بالتحذير" and Clang) then 
 data[tostring(msg.to.id)]["settings"]["location"] = "بالتحذير" 
@@ -4230,7 +4230,7 @@ data[tostring(msg.to.id)]["settings"]["location"] = "مفتوحه"
 end 
 
 ---------------------قفل الجهات------------------ 
-if (matches[1] == "قفل" and not Clang) or (matches[1] == "الجهات" and Clang) and is_mod(msg) then 
+if matches[1] == "قفل" and is_mod(msg) then 
 local contact = data[tostring(msg.to.id)]["settings"]["contact"] 
 if (matches[2] == "الجهات بالتحذير" and not Clang) or (matches[2] == "بالتحذير" and Clang) then 
 data[tostring(msg.to.id)]["settings"]["contact"] = "بالتحذير" 
@@ -4285,7 +4285,7 @@ data[tostring(msg.to.id)]["settings"]["contact"] = "مفتوحه"
 end 
 
 ---------------------قفل الصوت------------------ 
-if (matches[1] == "قفل" and not Clang) or (matches[1] == "الصوت" and Clang) and is_mod(msg) then 
+if matches[1] == "قفل" and is_mod(msg) then 
 local audio = data[tostring(msg.to.id)]["settings"]["audio"] 
 if (matches[2] == "الصوت بالتحذير" and not Clang) or (matches[2] == "بالتحذير" and Clang) then 
 data[tostring(msg.to.id)]["settings"]["audio"] = "بالتحذير" 
@@ -4340,7 +4340,7 @@ data[tostring(msg.to.id)]["settings"]["audio"] = "مفتوحه"
 end 
 
 ---------------------قفل الالعاب------------------ 
-if (matches[1] == "قفل" and not Clang) or (matches[1] == "الالعاب" and Clang) and is_mod(msg) then 
+if matches[1] == "قفل" and is_mod(msg) then 
 local game = data[tostring(msg.to.id)]["settings"]["game"] 
 if (matches[2] == "الالعاب بالتحذير" and not Clang) or (matches[2] == "بالتحذير" and Clang) then 
 data[tostring(msg.to.id)]["settings"]["game"] = "بالتحذير" 
@@ -4395,7 +4395,7 @@ data[tostring(msg.to.id)]["settings"]["game"] = "مفتوحه"
 end 
 
 ---------------------قفل اللستات------------------ 
-if (matches[1] == "قفل" and not Clang) or (matches[1] == "اللستات" and Clang) and is_mod(msg) then 
+if matches[1] == "قفل" and is_mod(msg) then 
 local inline = data[tostring(msg.to.id)]["settings"]["inline"] 
 if (matches[2] == "اللستات بالتحذير" and not Clang) or (matches[2] == "بالتحذير" and Clang) then 
 data[tostring(msg.to.id)]["settings"]["inline"] = "بالتحذير" 
@@ -4450,7 +4450,7 @@ data[tostring(msg.to.id)]["settings"]["inline"] = "مفتوحه"
 end 
 
 ---------------------قفل الاغاني------------------ 
-if (matches[1] == "قفل" and not Clang) or (matches[1] == "الاغاني" and Clang) and is_mod(msg) then 
+if matches[1] == "قفل" and is_mod(msg) then 
 local voice = data[tostring(msg.to.id)]["settings"]["voice"] 
 if (matches[2] == "الاغاني بالتحذير" and not Clang) or (matches[2] == "بالتحذير" and Clang) then 
 data[tostring(msg.to.id)]["settings"]["voice"] = "بالتحذير" 
@@ -4504,7 +4504,7 @@ data[tostring(msg.to.id)]["settings"]["voice"] = "مفتوحه"
    end 
 end 
  ---------------------كودات الفتح------------------ 
-if (matches[1] == "فتح" and not Clang) or (matches[1] == "فتح" and Clang) and is_mod(msg) then 
+if matches[1] == "فتح" and is_mod(msg) then 
 local link = data[tostring(msg.to.id)]["settings"]["link"] 
 if (matches[2] == "" and not Clang) or (matches[2] == "" and Clang) then 
 data[tostring(msg.to.id)]["settings"]["link"] = "بالتحذير" 
@@ -4559,7 +4559,7 @@ data[tostring(msg.to.id)]["settings"]["link"] = "مفتوحه"
 end 
 
 ---------------------Tag Settings------------------ 
-if (matches[1] == "فتح" and not Clang) or (matches[1] == "فتح" and Clang) and is_mod(msg) then 
+if matches[1] == "فتح" and is_mod(msg) then 
 local tags = data[tostring(msg.to.id)]["settings"]["tag"] 
 if (matches[2] == "" and not Clang) or (matches[2] == "" and Clang) then 
 data[tostring(msg.to.id)]["settings"]["tag"] = "بالتحذير" 
@@ -4614,7 +4614,7 @@ data[tostring(msg.to.id)]["settings"]["tag"] = "مفتوحه"
 end 
 
 ---------------------Text Settings------------------ 
-if (matches[1] == "فتح" and not Clang) or (matches[1] == "فتح" and Clang) and is_mod(msg) then 
+if matches[1] == "فتح" and is_mod(msg) then 
 local text = data[tostring(msg.to.id)]["settings"]["text"] 
 if (matches[2] == "" and not Clang) or (matches[2] == "" and Clang) then 
 data[tostring(msg.to.id)]["settings"]["text"] = "بالتحذير" 
@@ -4669,7 +4669,7 @@ data[tostring(msg.to.id)]["settings"]["text"] = "مفتوحه"
 end 
 
 ---------------------Chat Settings------------------ 
-if (matches[1] == "فتح" and not Clang) or (matches[1] == "فتح" and Clang) and is_mod(msg) then 
+if matches[1] == "فتح" and is_mod(msg) then 
 local chats = data[tostring(msg.to.id)]["settings"]["chat"] 
 if (matches[2] == "" and not Clang) or (matches[2] == "" and Clang) then 
 data[tostring(msg.to.id)]["settings"]["chat"] = "بالتحذير" 
@@ -4724,7 +4724,7 @@ data[tostring(msg.to.id)]["settings"]["chat"] = "مفتوحه"
 end 
 
 ---------------------Arabic Settings------------------ 
-if (matches[1] == "فتح" and not Clang) or (matches[1] == "فتح" and Clang) and is_mod(msg) then 
+if matches[1] == "فتح" and is_mod(msg) then 
 local arabic = data[tostring(msg.to.id)]["settings"]["arabic"] 
 if (matches[2] == "" and not Clang) or (matches[2] == "" and Clang) then 
 data[tostring(msg.to.id)]["settings"]["arabic"] = "بالتحذير" 
@@ -4779,7 +4779,7 @@ data[tostring(msg.to.id)]["settings"]["arabic"] = "مفتوحه"
 end 
 
 ---------------------Edit Settings------------------ 
-if (matches[1] == "فتح" and not Clang) or (matches[1] == "فتح" and Clang) and is_mod(msg) then 
+if matches[1] == "فتح" and is_mod(msg) then 
 local edit = data[tostring(msg.to.id)]["settings"]["edit"] 
 if (matches[2] == "" and not Clang) or (matches[2] == "" and Clang) then 
 data[tostring(msg.to.id)]["settings"]["edit"] = "بالتحذير" 
@@ -4834,7 +4834,7 @@ data[tostring(msg.to.id)]["settings"]["edit"] = "مفتوحه"
 end 
 
 ---------------------MarkDown Settings------------------ 
-if (matches[1] == "فتح" and not Clang) or (matches[1] == "فتح" and Clang) and is_mod(msg) then 
+if matches[1] == "فتح" and is_mod(msg) then 
 local markdown = data[tostring(msg.to.id)]["settings"]["markdown"] 
 if (matches[2] == "" and not Clang) or (matches[2] == "" and Clang) then 
 data[tostring(msg.to.id)]["settings"]["markdown"] = "بالتحذير" 
@@ -4868,7 +4868,7 @@ data[tostring(msg.to.id)]["settings"]["markdown"] = "بالكتم"
     else 
     return " \n📮 | • تم قفل الماركداون" 
    end 
-elseif (matches[2] == "المتركداون" and not Clang) or (matches[2] == "الماركدون" and Clang) then 
+elseif (matches[2] == "الماركداون" and not Clang) or (matches[2] == "الماركدون" and Clang) then 
   if markdown == "مفتوحه" then 
    if not lang then 
     return "📮 | • تم فتـح `🔓`    الماركداون\n\n\n📮 | • خاصيـة • الارسال" 
@@ -4889,7 +4889,7 @@ data[tostring(msg.to.id)]["settings"]["markdown"] = "مفتوحه"
 end 
 
 ---------------------Mention Settings------------------ 
-if (matches[1] == "فتح" and not Clang) or (matches[1] == "فتح" and Clang) and is_mod(msg) then 
+if matches[1] == "فتح" and is_mod(msg) then 
 local mention = data[tostring(msg.to.id)]["settings"]["mention"] 
 if (matches[2] == "" and not Clang) or (matches[2] == "" and Clang) then 
 data[tostring(msg.to.id)]["settings"]["mention"] = "بالتحذير" 
@@ -4944,7 +4944,7 @@ data[tostring(msg.to.id)]["settings"]["mention"] = "مفتوحه"
 end 
 
 ---------------------Flood Settings------------------ 
-if (matches[1] == "فتح" and not Clang) or (matches[1] == "فتح" and Clang) and is_mod(msg) then 
+if matches[1] == "فتح" and is_mod(msg) then 
 local flood = data[tostring(msg.to.id)]["settings"]["flood"] 
 if (matches[2] == "" and not Clang) or (matches[2] == "" and Clang) then 
 data[tostring(msg.to.id)]["settings"]["flood"] = "بالطرد" 
@@ -4981,7 +4981,7 @@ data[tostring(msg.to.id)]["settings"]["flood"] = "disable"
 end 
 
 ---------------------Spam Settings------------------ 
-if (matches[1] == "فتح" and not Clang) or (matches[1] == "فتح" and Clang) and is_mod(msg) then 
+if matches[1] == "فتح" and is_mod(msg) then 
 local spam = data[tostring(msg.to.id)]["settings"]["spam"] 
 if (matches[2] == "" and not Clang) or (matches[2] == "" and Clang) then 
 data[tostring(msg.to.id)]["settings"]["spam"] = "بالتحذير" 
@@ -5036,7 +5036,7 @@ data[tostring(msg.to.id)]["settings"]["spam"] = "disable"
 end 
 
 ---------------------Webpage Settings------------------ 
-if (matches[1] == "فتح" and not Clang) or (matches[1] == "فتح" and Clang) and is_mod(msg) then 
+if matches[1] == "فتح" and is_mod(msg) then 
 local webpage = data[tostring(msg.to.id)]["settings"]["webpage"] 
 if (matches[2] == "" and not Clang) or (matches[2] == "" and Clang) then 
 data[tostring(msg.to.id)]["settings"]["webpage"] = "بالتحذير" 
@@ -5091,7 +5091,7 @@ data[tostring(msg.to.id)]["settings"]["webpage"] = "مفتوحه"
 end 
 
 ---------------------Forward Settings------------------ 
-if (matches[1] == "فتح" and not Clang) or (matches[1] == "فتح" and Clang) and is_mod(msg) then 
+if matches[1] == "فتح" and is_mod(msg) then 
 local forward = data[tostring(msg.to.id)]["settings"]["forward"] 
 if (matches[2] == "" and not Clang) or (matches[2] == "" and Clang) then 
 data[tostring(msg.to.id)]["settings"]["forward"] = "بالتحذير" 
@@ -5146,7 +5146,7 @@ data[tostring(msg.to.id)]["settings"]["forward"] = "مفتوحه"
 end 
 
 ---------------------View Settings------------------ 
-if (matches[1] == "فتح" and not Clang) or (matches[1] == "فتح" and Clang) and is_mod(msg) then 
+if matches[1] == "فتح" and is_mod(msg) then 
 local view = data[tostring(msg.to.id)]["settings"]["view"] 
 if (matches[2] == "" and not Clang) or (matches[2] == "" and Clang) then 
 data[tostring(msg.to.id)]["settings"]["view"] = "بالتحذير" 
@@ -5201,7 +5201,7 @@ data[tostring(msg.to.id)]["settings"]["view"] = "مفتوحه"
 end 
 
 ---------------------Sticker Settings------------------ 
-if (matches[1] == "فتح" and not Clang) or (matches[1] == "فتح" and Clang) and is_mod(msg) then 
+if matches[1] == "فتح" and is_mod(msg) then 
 local sticker = data[tostring(msg.to.id)]["settings"]["sticker"] 
 if (matches[2] == "" and not Clang) or (matches[2] == "" and Clang) then 
 data[tostring(msg.to.id)]["settings"]["sticker"] = "بالتحذير" 
@@ -5256,7 +5256,7 @@ data[tostring(msg.to.id)]["settings"]["sticker"] = "مفتوحه"
 end 
 
 ---------------------Photo Settings------------------ 
-if (matches[1] == "فتح" and not Clang) or (matches[1] == "فتح" and Clang) and is_mod(msg) then 
+if matches[1] == "فتح" and is_mod(msg) then 
 local photo = data[tostring(msg.to.id)]["settings"]["photo"] 
 if (matches[2] == "" and not Clang) or (matches[2] == "" and Clang) then 
 data[tostring(msg.to.id)]["settings"]["photo"] = "بالتحذير" 
@@ -5311,7 +5311,7 @@ data[tostring(msg.to.id)]["settings"]["photo"] = "مفتوحه"
 end 
 
 ---------------------Video Settings------------------ 
-if (matches[1] == "فتح" and not Clang) or (matches[1] == "فتح" and Clang) and is_mod(msg) then 
+if matches[1] == "فتح" and is_mod(msg) then 
 local video = data[tostring(msg.to.id)]["settings"]["video"] 
 if (matches[2] == "" and not Clang) or (matches[2] == "" and Clang) then 
 data[tostring(msg.to.id)]["settings"]["video"] = "بالتحذير" 
@@ -5366,7 +5366,7 @@ data[tostring(msg.to.id)]["settings"]["video"] = "مفتوحه"
 end 
 
 ---------------------Gif Settings------------------ 
-if (matches[1] == "فتح" and not Clang) or (matches[1] == "فتح" and Clang) and is_mod(msg) then 
+if matches[1] == "فتح" and is_mod(msg) then 
 local gif = data[tostring(msg.to.id)]["settings"]["gif"] 
 if (matches[2] == "" and not Clang) or (matches[2] == "" and Clang) then 
 data[tostring(msg.to.id)]["settings"]["gif"] = "بالتحذير" 
@@ -5421,7 +5421,7 @@ data[tostring(msg.to.id)]["settings"]["gif"] = "مفتوحه"
 end 
 
 ---------------------Keyboard Settings------------------ 
-if (matches[1] == "فتح" and not Clang) or (matches[1] == "فتح" and Clang) and is_mod(msg) then 
+if matches[1] == "فتح" and is_mod(msg) then 
 local keyboard = data[tostring(msg.to.id)]["settings"]["keyboard"] 
 if (matches[2] == "" and not Clang) or (matches[2] == "" and Clang) then 
 data[tostring(msg.to.id)]["settings"]["keyboard"] = "بالتحذير" 
@@ -5476,7 +5476,7 @@ data[tostring(msg.to.id)]["settings"]["keyboard"] = "مفتوحه"
 end 
 
 ---------------------Document Settings------------------ 
-if (matches[1] == "فتح" and not Clang) or (matches[1] == "فتح" and Clang) and is_mod(msg) then 
+if matches[1] == "فتح" and is_mod(msg) then 
 local document = data[tostring(msg.to.id)]["settings"]["document"] 
 if (matches[2] == "" and not Clang) or (matches[2] == "" and Clang) then 
 data[tostring(msg.to.id)]["settings"]["document"] = "بالتحذير" 
@@ -5531,7 +5531,7 @@ data[tostring(msg.to.id)]["settings"]["document"] = "مفتوحه"
 end 
 
 ---------------------Location Settings------------------ 
-if (matches[1] == "فتح" and not Clang) or (matches[1] == "فتح" and Clang) and is_mod(msg) then 
+if matches[1] == "فتح" and is_mod(msg) then 
 local location = data[tostring(msg.to.id)]["settings"]["location"] 
 if (matches[2] == "" and not Clang) or (matches[2] == "" and Clang) then 
 data[tostring(msg.to.id)]["settings"]["location"] = "بالتحذير" 
@@ -5586,7 +5586,7 @@ data[tostring(msg.to.id)]["settings"]["location"] = "مفتوحه"
 end 
 
 ---------------------Contact Settings------------------ 
-if (matches[1] == "فتح" and not Clang) or (matches[1] == "فتح" and Clang) and is_mod(msg) then 
+if matches[1] == "فتح" and is_mod(msg) then 
 local contact = data[tostring(msg.to.id)]["settings"]["contact"] 
 if (matches[2] == "" and not Clang) or (matches[2] == "" and Clang) then 
 data[tostring(msg.to.id)]["settings"]["contact"] = "بالتحذير" 
@@ -5641,7 +5641,7 @@ data[tostring(msg.to.id)]["settings"]["contact"] = "مفتوحه"
 end 
 
 ---------------------Audio Settings------------------ 
-if (matches[1] == "فتح" and not Clang) or (matches[1] == "فتح" and Clang) and is_mod(msg) then 
+if matches[1] == "فتح" and is_mod(msg) then 
 local audio = data[tostring(msg.to.id)]["settings"]["audio"] 
 if (matches[2] == "" and not Clang) or (matches[2] == "" and Clang) then 
 data[tostring(msg.to.id)]["settings"]["audio"] = "بالتحذير" 
@@ -5696,7 +5696,7 @@ data[tostring(msg.to.id)]["settings"]["audio"] = "مفتوحه"
 end 
 
 ---------------------Game Settings------------------ 
-if (matches[1] == "فتح" and not Clang) or (matches[1] == "فتح" and Clang) and is_mod(msg) then 
+if matches[1] == "فتح" and is_mod(msg) then 
 local game = data[tostring(msg.to.id)]["settings"]["game"] 
 if (matches[2] == "" and not Clang) or (matches[2] == "" and Clang) then 
 data[tostring(msg.to.id)]["settings"]["game"] = "بالتحذير" 
@@ -5751,7 +5751,7 @@ data[tostring(msg.to.id)]["settings"]["game"] = "مفتوحه"
 end 
 
 ---------------------Inline Settings------------------ 
-if (matches[1] == "فتح" and not Clang) or (matches[1] == "فتح" and Clang) and is_mod(msg) then 
+if matches[1] == "فتح" and is_mod(msg) then 
 local inline = data[tostring(msg.to.id)]["settings"]["inline"] 
 if (matches[2] == "" and not Clang) or (matches[2] == "" and Clang) then 
 data[tostring(msg.to.id)]["settings"]["inline"] = "بالتحذير" 
@@ -5806,7 +5806,7 @@ data[tostring(msg.to.id)]["settings"]["inline"] = "مفتوحه"
 end 
 
 ---------------------Voice Settings------------------ 
-if (matches[1] == "فتح" and not Clang) or (matches[1] == "فتح" and Clang) and is_mod(msg) then 
+if matches[1] == "فتح" and is_mod(msg) then 
 local voice = data[tostring(msg.to.id)]["settings"]["voice"] 
 if (matches[2] == "" and not Clang) or (matches[2] == "" and Clang) then 
 data[tostring(msg.to.id)]["settings"]["voice"] = "بالتحذير" 

@@ -241,7 +241,7 @@ end
 del_msg(chat, tonumber(msg.id))
   end
 end
- if not is_mod(msg) and not is_whitelist(msg.from.id, msg.to.id) and msg.from.id ~= our_id then
+ if not is_mod(msg) and msg.from.id ~= our_id then
 	if msg.adduser or msg.joinuser then
 		if lock_join == "yes" then
 			function join_kick(arg, data)
@@ -276,7 +276,7 @@ end
           end
       end
   end
-      if not is_mod(msg) and msg.from.id ~= our_id and not is_whitelist(msg.from.id, msg.to.id) then
+      if not is_mod(msg) and msg.from.id ~= our_id  then
 if msg.edited then
 if edit == "بالتحذير" then
   local offender = 'edit_offender:'..msg.to.id
@@ -1420,7 +1420,7 @@ del_msg(chat, tonumber(msg.id))
        end
     end
  end
-if msg.to.type ~= 'pv' and not is_mod(msg) and not msg.adduser and msg.from.id ~= our_id and not is_whitelist(msg.from.id, msg.to.id) then
+if msg.to.type ~= 'pv' and not is_mod(msg) and not msg.adduser and msg.from.id ~= our_id  then
   if msg.from.id then
     local hash = 'user:'..user..':msgs'
     local msgs = tonumber(redis:get(hash) or 0)
