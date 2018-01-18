@@ -79,7 +79,7 @@ local sudouser = io.read()
 config = { 
 enabled_plugins = { 
     "msg-checks",
-    "id",
+    "groupmanager",
     "banhammer"
 }, 
 sudo_users = {sudo_id, botid}, 
