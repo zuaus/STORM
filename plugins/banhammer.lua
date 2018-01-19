@@ -16,7 +16,7 @@ user = msg.from.id
 local hash = "gp_lang:"..arg.chat_id 
 local lang = redis:get(hash) 
     if data.type_.ID == "UserTypeBot" then 
-      if not is_owner(arg.msg) and lock_bots == 'yes' then 
+      if not is_owner(arg.msg) and lock_bots == '🔒' then 
 kick_user(data.id_, arg.chat_id) 
 end 
 end 
