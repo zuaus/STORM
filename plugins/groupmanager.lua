@@ -280,17 +280,17 @@ local lang = redis:get(hash)
     -- superuser and admins only (because sudo are always has privilege) 
     if not is_admin(msg) then 
    if not lang then 
-        return "📮 | • للمــدراء و الادمـنيـه فقــط • " 
+        return " " 
 else 
-     return "📮 | • للمــدراء و الادمـنيـه فقــط • " 
+     return " " 
     end 
 end 
     local data = load_data(_config.moderation.data) 
   if data[tostring(msg.to.id)] then 
 if not lang then 
-   return '📮 | • تـم تفعيـل مجمـوعـة 👇\n • [`'..msg.to.title..'`] •' 
+   return '📮 | • تـم تفعيـل المجمـوعـة •'
 else 
-return '📮 | • تـم تفعيـل مجمـوعـة 👇\n • [`'..msg.to.title..'`] •' 
+return '📮 | • تـم تفعيـل المجمـوعـة •'
   end 
 end 
         -- يتم تخزين السورس في ملف data moderation.json 
@@ -341,9 +341,9 @@ end
       data[tostring(groups)][tostring(msg.to.id)] = msg.to.id 
       save_data(_config.moderation.data, data) 
     if not lang then 
-  return '📮 | • تـم تفعيـل مجمـوعـة 👇\n • [`'..msg.to.title..'`] • \n 📮 | • بوسطه  • @' ..msg.from.username..'\n' 
+  return '📮 | • تـم تفعيـل المجمـوعـة •'
 else 
-  local text = '📮 | • تـم تفعيـل مجمـوعـة 👇\n • [`'..msg.to.title..'`] • \n 📮 | • بوسطه  • @' ..msg.from.username..'\n' 
+  local text = '📮 | • تـم تفعيـل المجمـوعـة •'
 tdcli_function ({ID="SendMessage", chat_id_=msg.to.id, reply_to_message_id_=msg.id, disable_notification_=0, from_background_=1, reply_markup_=nil, input_message_content_={ID="InputMessageText", text_=text, disable_web_page_preview_=1, clear_draft_=0, entities_={[0] = {ID="MessageEntityMentionName", offset_=0, length_=28, user_id_=msg.sender_user_id_}}}}, dl_cb, nil) 
 end 
 end 
@@ -354,7 +354,7 @@ local lang = redis:get(hash)
     -- superuser and admins only (because sudo are always has privilege) 
       if not is_admin(msg) then 
      if not lang then 
-        return "📮 | • للمــدراء و الادمـنيـه فقــط • " 
+        return " " 
     end 
    end 
     local data = load_data(_config.moderation.data) 
@@ -1671,7 +1671,7 @@ end
 ---------------------كود تشغيل او تعطيل الردود-----------------
 local function lock_replay(msg, data, target)
 if not is_mod(msg) then
- return "📮 | • للمــدراء و الادمـنيـه فقــط • "
+ return " "
 end
 local replay = data[tostring(target)]["settings"]["replay"] 
 if replay == "no" then
@@ -1683,7 +1683,7 @@ return '📮 | • تم ايقاف 🔐 الردود  ❮ ☑️ ❯ \n\n\n📮 
 end end
 local function unlock_replay(msg, data, target)
  if not is_mod(msg) then
- return "📮 | • للمــدراء و الادمـنيـه فقــط • "
+ return " "
 end 
 local replay = data[tostring(target)]["settings"]["replay"]
  if replay == "yes" then
@@ -1699,9 +1699,9 @@ local hash = "gp_lang:"..msg.to.id
 local lang = redis:get(hash) 
 if not is_mod(msg) then 
 if not lang then 
- return "📮 | • للمــدراء و الادمـنيـه فقــط • " 
+ return " " 
 else 
- return "📮 | • للمــدراء و الادمـنيـه فقــط • " 
+ return " " 
 end 
 end 
 
@@ -1728,9 +1728,9 @@ local hash = "gp_lang:"..msg.to.id
 local lang = redis:get(hash) 
  if not is_mod(msg) then 
 if not lang then 
-return "📮 | • للمــدراء و الادمـنيـه فقــط • " 
+return " " 
 else 
-return "📮 | • للمــدراء و الادمـنيـه فقــط • " 
+return " " 
 end 
 end 
 
@@ -1756,9 +1756,9 @@ local hash = "gp_lang:"..msg.to.id
 local lang = redis:get(hash) 
 if not is_mod(msg) then 
 if not lang then 
- return "📮 | • للمــدراء و الادمـنيـه فقــط • " 
+ return " " 
 else 
- return "📮 | • للمــدراء و الادمـنيـه فقــط • " 
+ return " " 
 end 
 end 
 
@@ -1785,9 +1785,9 @@ local hash = "gp_lang:"..msg.to.id
 local lang = redis:get(hash) 
  if not is_mod(msg) then 
 if not lang then 
-return "📮 | • للمــدراء و الادمـنيـه فقــط • " 
+return " " 
 else 
-return "📮 | • للمــدراء و الادمـنيـه فقــط • " 
+return " " 
 end 
 end 
 
@@ -1814,9 +1814,9 @@ local hash = "gp_lang:"..msg.to.id
 local lang = redis:get(hash) 
 if not is_mod(msg) then 
 if not lang then 
- return "📮 | • للمــدراء و الادمـنيـه فقــط • " 
+ return " " 
 else 
- return "📮 | • للمــدراء و الادمـنيـه فقــط • " 
+ return " " 
 end 
 end 
 
@@ -1843,9 +1843,9 @@ local hash = "gp_lang:"..msg.to.id
 local lang = redis:get(hash) 
  if not is_mod(msg) then 
 if not lang then 
-return "📮 | • للمــدراء و الادمـنيـه فقــط • " 
+return " " 
 else 
-return "📮 | • للمــدراء و الادمـنيـه فقــط • " 
+return " " 
 end 
 end 
 local lock_join = data[tostring(target)]["settings"]["lock_join"] 
@@ -1870,9 +1870,9 @@ local hash = "gp_lang:"..msg.to.id
 local lang = redis:get(hash) 
 if not is_mod(msg) then 
 if not lang then 
-    return "📮 | • للمــدراء و الادمـنيـه فقــط • " 
+    return " " 
 else 
-  return "📮 | • للمــدراء و الادمـنيـه فقــط • " 
+  return " " 
 end 
 end 
 local data = load_data(_config.moderation.data) 
@@ -2145,9 +2145,9 @@ local hash = "gp_lang:"..msg.to.id
 local lang = redis:get(hash) 
 if not is_mod(msg) then 
 if not lang then 
- return "📮 | • للمــدراء و الادمـنيـه فقــط • " 
+ return " " 
 else 
- return "📮 | • للمــدراء و الادمـنيـه فقــط • " 
+ return " " 
 end 
 end 
 
@@ -2174,9 +2174,9 @@ local hash = "gp_lang:"..msg.to.id
 local lang = redis:get(hash) 
  if not is_mod(msg) then 
 if not lang then 
-return "📮 | • للمــدراء و الادمـنيـه فقــط • " 
+return " " 
 else 
-return "📮 | • للمــدراء و الادمـنيـه فقــط • " 
+return " " 
 end 
 end 
 
@@ -5217,7 +5217,7 @@ data[tostring(msg.to.id)]["settings"]["sticker"] = "بالحذف"
    if not lang then 
     return " \n📮 | • تم قفل الملصقات " 
     else 
-    return " \n📮 | • تم قفل الملصقات " 
+    return " \n?? | • تم قفل الملصقات " 
    end 
 elseif (matches[2] == "" and not Clang) or (matches[2] == "" and Clang) then 
 data[tostring(msg.to.id)]["settings"]["sticker"] = "بالطرد" 
@@ -7253,7 +7253,7 @@ if msg.text =="😹😹😹😹" then
 return  "دوم الضحكه يالغالي 😻" 
 end
 if msg.text =="😹😹😹" then
-return  "دوم الضحكه يالغالي 😻"
+return  "دوم الضحكه يالغالي ??"
 end
 if msg.text =="😹😹" then
 return  "دوم الضحكه يالغالي 😻"
@@ -10469,7 +10469,7 @@ redis:sadd(offender, user)
     if lang then
      tdcli.sendMessage(msg.to.id, msg.id, 0, '📮 | • العضو : '..user_name..' \n📮 | • الايدي : '..user..'\n📮 | • ممنوع ارسال الماركداون هنا', 0, "html")
      elseif not lang then
-     tdcli.sendMessage(msg.to.id, msg.id, 0, '📮 | • العضو : '..user_name..' \n📮 | • الايدي : '..user..'\n📮 | • ممنوع ارسال الماركداون هنا', 0, "html")
+     tdcli.sendMessage(msg.to.id, msg.id, 0, '?? | • العضو : '..user_name..' \n📮 | • الايدي : '..user..'\n📮 | • ممنوع ارسال الماركداون هنا', 0, "html")
         end
    end
 elseif markdowns == "بالحذف" then
