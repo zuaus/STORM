@@ -195,7 +195,8 @@ local function savePlug(txt, pname)
 	file:flush()
 	file:close()
 end
--------------------------------------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------------------------------------
 local function mmm(chat_id)
   local chat = {}
   local chat_id = tostring(chat_id)
@@ -311,6 +312,7 @@ end
           markdown = '🔓', 
           flood = '🔕', 
           lock_bots = '🔒', 
+          lock_taha = '🔒', 
           lock_pin = '🔓', 
           welcome = '✔', 
                   forward = '🔓', 
@@ -1706,7 +1708,7 @@ end
 end 
 
 local lock_bots = data[tostring(target)]["settings"]["lock_bots"] 
-if lock_bots == "🔒" then 
+if lock_bots == "yes" then 
 if not lang then 
  return "📮 | • تم قفل 🔐 البوتات ❮ ☑️ ❯ \n\n\n📮 | • خاصيـة • الـطرد 🚯" 
 elseif lang then 
@@ -1735,7 +1737,7 @@ end
 end 
 
 local lock_bots = data[tostring(target)]["settings"]["lock_bots"] 
- if lock_bots == "🔓" then 
+ if lock_bots == "no" then 
 if not lang then 
 return "📮 | • تم فتـح 🔓 دخول البوتات" 
 elseif lang then 
@@ -2010,6 +2012,11 @@ data[tostring(target)]["settings"]["sticker"] = "🔓"
 end 
 end 
 if data[tostring(target)]["settings"] then 
+if not data[tostring(target)]["settings"]["lock_taha"] then 
+data[tostring(target)]["settings"]["lock_taha"] = "🔓" 
+end 
+end 
+if data[tostring(target)]["settings"] then 
 if not data[tostring(target)]["settings"]["contact"] then 
 data[tostring(target)]["settings"]["contact"] = "🔓" 
 end 
@@ -2093,7 +2100,7 @@ local settings = data[tostring(target)]["settings"]
 "}*\n🔹•  الاغاني• *{"..settings.voice..
 "}*\n🔹•  الصور• *{"..settings.photo..
 "}*\n🔹•  الملفات• *{"..settings.document..
-"}*\n🔹•  المواقع• *{"..settings.location..
+"}*\n??•  المواقع• *{"..settings.location..
 "}*\n🔹•  المتحركه• *{"..settings.gif..
 "}*\n🔹•  الكل• *{"..settings.chat..
 "}*\n🔹•  الجهات• *{"..settings.contact..
@@ -2104,6 +2111,7 @@ local settings = data[tostring(target)]["settings"]
 "}*\n🔹•  دخول الاعضاء• *{"..settings.lock_join..
 "}*\n🔹•  التثبيت• *{"..settings.lock_pin..
 "}*\n🔹•  الاشعارات• *{"..settings.lock_tgservice..
+"}*\n🔹•  الاشعارات• *{"..settings.lock_taha..
 "}*\n🔹•  دخول البوتات• *{"..settings.lock_bots..
 "}*\n🔹•  الكلايش• *{"..settings.spam.."}\n•┈•⚜•۪۫•৩﴾ • ♦️ • ﴿৩•۪۫•⚜•┈•\n• تابع قناتنا• @"..botusea.."\n"
  else 
@@ -2197,6 +2205,64 @@ return "📮 | • تم فتح🔓  الاشعارات\n\n\n"
 end 
 end 
 end 
+local function lock_taha(msg, data, target) 
+local hash = "gp_lang:"..msg.to.id 
+local lang = redis:get(hash) 
+if not is_mod(msg) then 
+if not lang then 
+ return "👁‍🗨￤» للمــدراء فقــط🚸 " 
+else 
+ return "👁‍🗨￤» للمــدراء فقــط🚸 " 
+end 
+end 
+
+local lock_taha = data[tostring(target)]["settings"]["lock_taha"] 
+if lock_taha == "🔒" then 
+if not lang then 
+ return "📮 | • تم قفل 🔐 الاشعارات ❮ ☑️ ❯ \n\n\n📮 | • خاصيـة • الحـذف 🗑" 
+elseif lang then 
+ return "📮 | • تم قفل 🔐 الاشعارات ❮ ☑️ ❯ \n\n\n📮 | • خاصيـة • الحـذف 🗑" 
+end 
+else 
+ data[tostring(target)]["settings"]["lock_taha"] = "🔒" 
+save_data(_config.moderation.data, data) 
+if not lang then 
+ return "📮 | • تم قفل 🔐 الاشعارات ❮ ☑️ ❯ \n\n\n📮 | • خاصيـة • الحـذف 🗑" 
+else 
+return "📮 | • تم قفل 🔐 الاشعارات ❮ ☑️ ❯ \n\n\n📮 | • خاصيـة • الحـذف 🗑" 
+end 
+end 
+end 
+
+local function unlock_taha(msg, data, target) 
+local hash = "gp_lang:"..msg.to.id 
+local lang = redis:get(hash) 
+ if not is_mod(msg) then 
+if not lang then 
+return "👁‍🗨￤» للمــدراء فقــط🚸 " 
+else 
+return "👁‍🗨￤» للمــدراء فقــط🚸 " 
+end 
+end 
+
+local lock_taha = data[tostring(target)]["settings"]["lock_taha"] 
+ if lock_taha == "🔓" then 
+if not lang then 
+return "📮 | • تم فتح🔓  الاشعارات\n\n\n" 
+elseif lang then 
+return "📮 | • تم فتح🔓  الاشعارات\n\n\n" 
+end 
+else 
+data[tostring(target)]["settings"]["lock_taha"] = "🔓" 
+ save_data(_config.moderation.data, data) 
+if not lang then 
+return "📮 | • تم فتح🔓  الاشعارات\n\n\n" 
+else 
+return "📮 | • تم فتح🔓  الاشعارات\n\n\n" 
+end 
+end 
+end 
+
 ------------------------كودات ملف البلونكز--------------------
 local function plugin_enabled( name )
   for k,v in pairs(_config.enabled_plugins) do
@@ -3128,7 +3194,7 @@ if ((matches[2] == "الدخول" and not Clang) or (matches[2] == " الدخو�
 return lock_join(msg, data, target) 
 end 
 if ((matches[2] == "الاشعارات" and not Clang) or (matches[2] == "الاشعارات" and Clang)) then 
-return lock_tgservice(msg ,data, target) 
+return lock_taha(msg ,data, target) 
 end 
 end 
 
@@ -3144,7 +3210,7 @@ if ((matches[2] == "الدخول" and not Clang) or (matches[2] == "الدخول
 return unlock_join(msg, data, target) 
 end 
 if ((matches[2] == "الاشعارات" and not Clang) or (matches[2] == "الاشعارات" and Clang)) then 
-return unlock_tgservice(msg ,data, target) 
+return unlock_taha(msg ,data, target) 
 end 
 end 
    --------------------------------------------قفل الروابط------------------ 
@@ -6085,7 +6151,7 @@ return '📮 | • تم ايقاف 🔐 الخدمات  ❮ ☑️ ❯ \n\n\n�
 else
 data[tostring(chat)]['settings']['lock_taha'] = "no"
 save_data(_config.moderation.data, data)
-return '📮 | • تم ايقاف 🔐 الخدمات  ❮ ☑️ ❯ \n\n\n📮 | • خاصيـة • الحـذف 🗑'
+return '📮 | • تم ايقاف 🔐 الخدمات  ❮ ☑️ ❯ \n\n\n📮 | • خاصيـة • الحـذف ??'
 end
 end
 end
@@ -7514,7 +7580,7 @@ if msg.text =="🐍??" then
 return  "ماكو غيرك زاحف🙊🗯" 
 end
 if msg.text =="🐍🐍🐍" then
-return  "ماكو غيرك زاحف??🗯" 
+return  "ماكو غيرك زاحف????" 
 end
 if msg.text =="🐍🐍🐍🐍" then
 return  "ماكو غيرك زاحف🙊🗯" 
@@ -8666,6 +8732,18 @@ if matches[1]:lower() == 'كول' or matches[1] == 'كول' then
 local pext = matches[2]
 tdcli.sendMessage(msg.to.id, 0,1, pext,1,'md')
 end
+if (matches[1] == "قفل السيلفي" or matches[1] == "قفل السيلفي") and not redis:get("mute-video-not"..msg.to.id) and is_mod(msg) then
+  hash = "mute-video-not"..msg.to.id
+  redis:set(hash , true)
+  tdcli.sendMessage(msg.to.id,msg.id_ ,0, "👁‍🗨￤مرحــبا عزيــزي المستخــدم \n👁‍🗨￤تم قفل  السيلفي" , 0, "md")
+ elseif (matches[1] == "قفل السيلفي" or matches[1] == "قفل السيلفي") and redis:get("mute-video-not"..msg.to.id) and is_mod(msg) then
+  tdcli.sendMessage(msg.to.id,msg.id_ ,0, "👁‍🗨￤مرحــبا عزيــزي المستخــدم \n👁‍🗨￤بالفعل تم قفل  السيلفي" , 0, "md")
+ elseif matches[1] == "فتح السيلفي" or matches[1] == "فتح السيلفي" and not redis:get("unmute-video-not"..msg.to.id) and is_mod(msg) then
+  tdcli.sendMessage(msg.to.id,msg.id_ ,0, "👁‍🗨￤مرحــبا عزيــزي المستخــدم \n👁‍🗨￤تم فتح  السيلفي" , 0, "md")
+ elseif matches[1] == "فتح السيلفي" or matches[1] == "فتح السيلفي" and redis:get("unmute-video-not"..msg.to.id) and is_mod(msg) then
+  redis:del("unmute-video-not"..msg.to.id)
+  tdcli.sendMessage(msg.to.id,msg.id_ ,0, "👁‍🗨￤مرحــبا عزيــزي المستخــدم \n👁‍🗨￤بالفعل تم فتح  السيلفي" , 0, "md")
+ end
 if matches[1] == "رابط الحذف"  then
     local text = [[
 

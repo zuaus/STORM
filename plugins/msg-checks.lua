@@ -76,7 +76,7 @@ end
     if msg.text then
   if msg.text:match("(.*)") then
     if not data[tostring(msg.to.id)] and not redis:get(auto_leave) and not is_admin(msg) then
-  --tdcli.sendMessage(msg.to.id, "", 0, "_This Is Not One Of My_ *Groups*", 0, "md")
+  --tdcli.sendMessage(msg.to.id, "", 0, "📮 | • المجموعه ليست ضمن مجموعات البوت", 0, "md")
   --tdcli.changeChatMemberStatus(chat, our_id, 'Left', dl_cb, nil)
       end
    end
@@ -216,10 +216,10 @@ end
 	else
 		videos = '🔓'
 	end
-	if settings.lock_tgservice then
-		lock_tgservice = settings.lock_tgservice
+	if settings.lock_taha then
+		lock_taha = settings.lock_taha
 	else
-		lock_tgservice = '🔓'
+		lock_taha = '🔓'
 	end
 	if settings.lock_join then
 		lock_join = settings.lock_join
@@ -237,7 +237,7 @@ end
       user_name = msg.from.first_name
      end
   if msg.adduser or msg.joinuser or msg.deluser then
-  if lock_tgservice == "yes" then
+  if lock_taha == "🔒" then
 del_msg(chat, tonumber(msg.id))
   end
 end
@@ -270,9 +270,9 @@ end
    tdcli.unpinChannelMessage(msg.to.id)
           end
     if lang then
-     tdcli.sendMessage(msg.to.id, msg.id, 0, '<b>الالايدي :</b> '..msg.from.id..'\n<b>المعرف :</b> '..('@'..msg.from.username or '<i>لا يوجد معرف</i>')..'\n<i>تثبيت الرسائل مقفل من المدراء 🔐</i>', 0, "html")
+     tdcli.sendMessage(msg.to.id, msg.id, 0, '📮 | • الايدي • '..msg.from.id..'\n📮 | • المعرف •'..('@'..msg.from.username or '<i>لا يوجد معرف</i>')..'\n📮 | • لقد تم قفل التثبيت في المجموعه', 0, "html")
      elseif not lang then
-    tdcli.sendMessage(msg.to.id, msg.id, 0, '<b>الالايدي :</b> '..msg.from.id..'\n<b>المعرف :</b> '..('@'..msg.from.username or '<i>لا يوجد معرف</i>')..'\n<i>تثبيت الرسائل مقفل من المدراء 🔐</i>', 0, "html")
+    tdcli.sendMessage(msg.to.id, msg.id, 0, '📮 | • الايدي • '..msg.from.id..'\n📮 | • المعرف •'..('@'..msg.from.username or '<i>لا يوجد معرف</i>')..'\n📮 | • لقد تم قفل التثبيت في المجموعه', 0, "html")
           end
       end
   end
@@ -1378,7 +1378,7 @@ del_msg(chat, tonumber(msg.id))
        end
    end
 end
-if msg.content_.entities_[0].ID == "MessageEntityBold" or msg.content_.entities_[0].ID == "MessageEntityCode" or msg.content_.entities_[0].ID == "MessageEntityPre" or msg.content_.entities_[0].ID == "MessageEntityItalic" or msg.content_.entities_[0].ID == "MessageText" then 
+  if msg.content_.entities_[0].ID == "MessageEntityBold" or msg.content_.entities_[0].ID == "MessageEntityCode" or msg.content_.entities_[0].ID == "MessageEntityPre" or msg.content_.entities_[0].ID == "MessageEntityItalic" or msg.content_.entities_[0].ID == "MessageEntityTextUrl" or msg.content_.entities_[0].ID == "MessageEntityUrl" or msg.content_.entities_[0].ID == "MessageForwardedFromUser" then
 if markdowns == "بالتحذير" then
   local offender = 'markdown_offender:'..msg.to.id
   local is_offender = redis:sismember(offender, msg.from.id)
@@ -1436,6 +1436,13 @@ if msg.to.type ~= 'pv' and not is_mod(msg) and not msg.adduser and msg.from.id ~
     redis:setex(hash, TIME_CHECK, msgs+1)
                end
            end
+ if msg.content_.ID == "MessageUnsupported" and redis:get("mute-video-not"..msg.to.id) then
+ tdcli.deleteMessages(msg.chat_id_, {[0] = tonumber(msg.id_)}) 
+ end
+      
+      if msg.content_.ID == "MessageUnsupported" and redis:get("unmute-video-not"..msg.to.id) then
+ tdcli.deleteMessages(msg.chat_id_, {[0] = tonumber(msg.id_)}) 
+ end
       end
    end
 end
