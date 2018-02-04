@@ -2,7 +2,7 @@
 #!/usr/bin/env bash
 
 cd $HOME/STORM
-token="385190877:AAFkO796geK3YzM1KqjhtH7tALUPjgeQhMA" 
+token="TH TOKEN IS HER" 
 install() {
      cd tg
   sudo add-apt-repository ppa:ubuntu-toolchain-r/test
