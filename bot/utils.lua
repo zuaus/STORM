@@ -134,9 +134,9 @@ tdcli_function ({
    end
 end
   if not lang then
-    return tdcli.sendMessage(msg.to.id, msg.id, 0, "_All group admins has been promoted and group creator is now group owner_", 0, "md")
+    return tdcli.sendMessage(msg.to.id, msg.id, 0, "", 0, "md")
 else
-    return tdcli.sendMessage(msg.to.id, msg.id, 0, "_تمام ادمین های گروه به مقام مدیر منتصب شدند و سازنده گروه به مقام مالک گروه منتصب شد_", 0, "md")
+    return tdcli.sendMessage(msg.to.id, msg.id, 0, "", 0, "md")
      end
  end
 tdcli.getChannelMembers(msg.to.id, 0, 'Administrators', 200, config_cb, {chat_id=msg.to.id})
